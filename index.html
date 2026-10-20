@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#e94720">
+  <title>Nasi Goreng Malam — Hangat, Nikmat, Ramah Kantong</title>
+  <style>
+    :root{--red:#e94720;--orange:#ff9a27;--cream:#fff8ef;--ink:#28211d;--muted:#756b64;--green:#16824b}
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:#fff}
+    a{color:inherit;text-decoration:none} button{font:inherit;cursor:pointer}
+    .topline{background:#2c211d;color:#fff;text-align:center;padding:9px 14px;font-size:13px}
+    header{position:sticky;top:0;z-index:10;background:#fffdf9ee;backdrop-filter:blur(12px);border-bottom:1px solid #f2e7dc}
+    .nav{max-width:1120px;margin:auto;padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:-.5px}.brand-icon{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,var(--red),var(--orange));display:grid;place-items:center;font-size:23px;box-shadow:0 8px 18px #e9472033}
+    .brand small{display:block;color:var(--muted);font-size:11px;font-weight:600;letter-spacing:.5px}
+    .navlinks{display:flex;gap:24px;font-size:14px;font-weight:700}.navlinks a:hover{color:var(--red)}
+    .cart-pill{border:0;background:var(--ink);color:white;border-radius:999px;padding:11px 16px;font-weight:800;display:flex;align-items:center;gap:8px}
+    .hero{background:radial-gradient(circle at 85% 20%,#ffd89a 0,transparent 27%),linear-gradient(120deg,#fff5e7,#fffaf5 60%,#ffe8cf);overflow:hidden}
+    .hero-inner{max-width:1120px;margin:auto;padding:64px 22px 70px;display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:34px}
+    .eyebrow{display:inline-flex;gap:8px;align-items:center;background:#fff;border:1px solid #f4d8bc;border-radius:999px;padding:8px 13px;color:#9b431f;font-size:12px;font-weight:800}
+    h1{font-size:clamp(42px,6vw,68px);line-height:.99;letter-spacing:-3px;margin:20px 0 18px;max-width:600px}
+    h1 span{color:var(--red)} .hero p{font-size:17px;line-height:1.7;color:#6d5d51;max-width:510px}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+    .btn{border:0;border-radius:14px;padding:14px 20px;font-weight:850;display:inline-flex;justify-content:center;align-items:center;gap:8px;transition:.2s}
+    .btn-primary{background:var(--red);color:#fff;box-shadow:0 10px 24px #e9472030}.btn-primary:hover{transform:translateY(-2px);background:#d83b17}
+    .btn-light{background:#fff;color:var(--ink);border:1px solid #f0dfcf}.btn-light:hover{border-color:var(--orange)}
+    .hero-note{font-size:12px!important;margin-top:18px;color:#8b7768!important}
+    .food-art{position:relative;min-height:360px;display:grid;place-items:center}
+    .food-circle{width:min(390px,80vw);aspect-ratio:1;border-radius:50%;background:linear-gradient(145deg,#ffbd57,#f36a26);display:grid;place-items:center;box-shadow:inset -15px -20px 0 #db4b1c22,0 28px 60px #c35b2a2b;transform:rotate(-7deg)}
+    .food-emoji{font-size:clamp(150px,22vw,235px);filter:drop-shadow(0 22px 12px #7333153b);transform:rotate(7deg)}\n    .photo-circle{overflow:hidden;transform:rotate(-4deg);border:10px solid #fff; background:#f5c17b}.hero-food-photo{width:100%;height:100%;object-fit:cover;transform:rotate(4deg) scale(1.08)}
+    .float-tag{position:absolute;background:white;border-radius:18px;padding:13px 16px;box-shadow:0 12px 32px #693a1c20;font-weight:850}.float-tag small{display:block;font-size:11px;color:var(--muted);font-weight:600;margin-top:3px}.tag-one{top:22px;left:0}.tag-two{right:0;bottom:25px}
+    .section{max-width:1120px;margin:auto;padding:70px 22px}.section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:28px}.section-kicker{color:var(--red);font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:1.6px}
+    h2{font-size:clamp(29px,4vw,42px);letter-spacing:-1.5px;margin:8px 0 0}.section-head p{max-width:390px;color:var(--muted);line-height:1.6;margin:0}
+    .menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .menu-card{border:1px solid #f0e6dc;border-radius:22px;overflow:hidden;background:#fff;transition:.2s;display:flex;flex-direction:column}.menu-card:hover{transform:translateY(-4px);box-shadow:0 18px 35px #39200c0c}
+    .food-photo{height:175px;background:#f8eadb;display:block;position:relative;overflow:hidden}.food-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s}.menu-card:hover .food-photo img{transform:scale(1.06)}
+    .food-photo.orange{background:#ffe7c3}.food-photo.red{background:#ffe4d5}.food-photo.green{background:#e5f0ce}
+    .food-photo .badge{position:absolute;left:13px;top:13px;background:#fff;color:#a5431f;border-radius:999px;padding:6px 10px;font-size:10px;font-weight:900}
+    .menu-body{padding:18px;display:flex;flex-direction:column;flex:1}.menu-body h3{margin:0 0 8px;font-size:19px}.menu-body p{margin:0;color:var(--muted);font-size:13px;line-height:1.55;min-height:40px}
+    .menu-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:18px}.price{font-size:20px;font-weight:950;color:var(--red)}.add-btn{border:0;background:#fff0e7;color:var(--red);font-size:13px;font-weight:900;border-radius:11px;padding:10px 13px}.add-btn:hover{background:var(--red);color:white}
+    .benefits{background:#2c211d;color:white}.benefit-inner{max-width:1120px;margin:auto;padding:45px 22px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}.benefit{display:flex;gap:14px;align-items:flex-start}.benefit-icon{width:44px;height:44px;flex-shrink:0;background:#ffffff13;border-radius:14px;display:grid;place-items:center;font-size:22px}.benefit h3{margin:2px 0 6px;font-size:15px}.benefit p{margin:0;color:#c8b8ae;font-size:13px;line-height:1.55}
+    .order-band{max-width:1120px;margin:0 auto;padding:60px 22px}.order-box{background:linear-gradient(115deg,var(--red),#f66e22);border-radius:28px;padding:36px 40px;color:white;display:flex;align-items:center;justify-content:space-between;gap:25px;position:relative;overflow:hidden}.order-box:after{content:'🍳';position:absolute;font-size:130px;right:25%;opacity:.12;transform:rotate(-15deg)}.order-box h2{max-width:550px;margin:0 0 10px}.order-box p{margin:0;color:#ffe8d8;line-height:1.6}.order-box .btn{background:white;color:var(--red);z-index:1;white-space:nowrap}
+    footer{background:#fff8ef;border-top:1px solid #f2e4d5}.footer-inner{max-width:1120px;margin:auto;padding:30px 22px;display:flex;align-items:center;justify-content:space-between;gap:20px;color:#756b64;font-size:12px}.footer-inner strong{color:var(--ink)}
+    .cart-drawer{position:fixed;inset:0;z-index:30;display:none;background:#1d120d70;justify-content:flex-end}.cart-drawer.open{display:flex}.cart-panel{background:white;width:min(430px,100%);height:100%;padding:24px;display:flex;flex-direction:column;box-shadow:-15px 0 50px #0002}.cart-head{display:flex;align-items:center;justify-content:space-between}.cart-head h2{font-size:25px;margin:0}.close-btn{border:0;background:#f7eee6;border-radius:10px;width:38px;height:38px;font-size:20px}.cart-items{flex:1;overflow:auto;margin:20px 0}.cart-row{display:grid;grid-template-columns:1fr auto;gap:10px;padding:14px 0;border-bottom:1px solid #f0e6dc}.cart-row strong{display:block}.cart-row small{color:var(--muted)}.qty{display:flex;align-items:center;gap:10px;margin-top:8px}.qty button{width:25px;height:25px;border:1px solid #ead9ca;background:white;border-radius:8px}.cart-summary{border-top:1px solid #eaded2;padding-top:18px}.total{display:flex;justify-content:space-between;font-size:18px;font-weight:900;margin-bottom:15px}.cart-empty{text-align:center;color:var(--muted);padding:45px 0;line-height:1.7}
+    .checkout-fields{display:grid;gap:9px;margin:0 0 12px}.checkout-fields input,.checkout-fields textarea{width:100%;padding:12px;border:1px solid #e9d9ca;border-radius:11px;font:inherit;font-size:14px}.checkout-fields textarea{resize:vertical;min-height:65px}
+    .toast{position:fixed;bottom:20px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#2c211d;color:white;padding:12px 18px;border-radius:12px;font-size:13px;z-index:50;transition:.25s}.toast.show{opacity:1;transform:translate(-50%,0)}
+    @media(max-width:760px){.nav{padding:12px 16px}.navlinks{display:none}.hero-inner{grid-template-columns:1fr;padding-top:45px;gap:10px}.hero-inner>div:first-child{text-align:center}.hero p{margin-left:auto;margin-right:auto}.hero-actions{justify-content:center}.food-art{min-height:300px}.food-circle{width:270px}.food-emoji{font-size:165px}.tag-one{left:3%}.tag-two{right:2%;bottom:10px}.section{padding:52px 16px}.section-head{display:block}.section-head p{margin-top:12px}.menu-grid{grid-template-columns:1fr 1fr;gap:12px}.food-photo{height:135px;font-size:66px}.menu-body{padding:13px}.menu-body h3{font-size:16px}.menu-body p{font-size:12px;min-height:55px}.price{font-size:17px}.add-btn{padding:9px}.benefit-inner{grid-template-columns:1fr;padding:35px 20px}.order-band{padding:42px 16px}.order-box{padding:28px 23px;display:block}.order-box .btn{margin-top:20px}.order-box:after{right:0}.footer-inner{display:block;text-align:center;line-height:1.8}}
+    @media(max-width:390px){.menu-grid{grid-template-columns:1fr}.food-photo{height:170px}.menu-body p{min-height:0}}
+  </style>
+</head>
+<body>
+  <div class="topline">🍳 Dibuat saat dipesan • Harga ramah kantong untuk teman malam kamu</div>
+  <header>
+    <nav class="nav">
+      <a class="brand" href="#home"><span class="brand-icon">🍚</span><span>Nasi Goreng<small>HANGAT • NIKMAT • MANTAP</small></span></a>
+      <div class="navlinks"><a href="#home">Beranda</a><a href="#menu">Menu</a><a href="#tentang">Kenapa Kami?</a></div>
+      <button class="cart-pill" onclick="openCart()">🛒 <span>Keranjang</span> <span id="cartCount">0</span></button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-inner">
+        <div>
+          <span class="eyebrow">🌙 TEMAN LAPAR MALAM HARI</span>
+          <h1>Lapar malam?<br><span>Nasi goreng</span> aja!</h1>
+          <p>Nasi goreng hangat dengan rasa mantap dan harga bersahabat. Pas buat mahasiswa, anak kos, pekerja, dan siapa pun yang butuh makan enak tanpa bikin kantong menjerit.</p>
+          <div class="hero-actions"><a class="btn btn-primary" href="#menu">Lihat Menu <span>→</span></a><button class="btn btn-light" onclick="openCart()">🛒 Pesan Sekarang</button></div>
+          <p class="hero-note">Harga menu contoh Rp10.000–Rp15.000. Sesuaikan dengan menu dan harga jualmu.</p>
+        </div>
+        <div class="food-art">
+          <div class="food-circle photo-circle"><img class="hero-food-photo" src="https://mia.vn/media/uploads/blog-du-lich/nasi-goreng-4-1709766430.jpeg" alt="Foto nasi goreng asli dengan telur dan cabai" loading="eager"></div>
+          <div class="float-tag tag-one">🔥 Baru dimasak<small>Disajikan hangat</small></div>
+          <div class="float-tag tag-two">💸 Mulai Rp10 ribuan<small>Ramah kantong</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="menu">
+      <div class="section-head"><div><div class="section-kicker">Menu favorit</div><h2>Pilih yang bikin kenyang</h2></div><p>Pilih menu favoritmu, masukkan ke keranjang, lalu kirim pesanan melalui WhatsApp.</p></div>
+      <div class="menu-grid" id="menuGrid"></div>
+    </section>
+
+    <section class="benefits" id="tentang">
+      <div class="benefit-inner">
+        <div class="benefit"><div class="benefit-icon">🍳</div><div><h3>Dimasak saat dipesan</h3><p>Nasi goreng disiapkan hangat untuk menemani aktivitasmu.</p></div></div>
+        <div class="benefit"><div class="benefit-icon">💰</div><div><h3>Harga ramah kantong</h3><p>Cocok untuk mahasiswa dan anak kos dengan budget terbatas.</p></div></div>
+        <div class="benefit"><div class="benefit-icon">📱</div><div><h3>Pemesanan praktis</h3><p>Atur pesanan dari website dan lanjutkan konfirmasi lewat WhatsApp.</p></div></div>
+      </div>
+    </section>
+
+    <section class="order-band">
+      <div class="order-box"><div><h2>Sudah tahu mau makan apa malam ini?</h2><p>Pilih menu, cek keranjang, lalu kirim detail pesananmu dengan mudah.</p></div><button class="btn" onclick="openCart()">Mulai Pesan <span>→</span></button></div>
+    </section>
+  </main>
+  <footer><div class="footer-inner"><div><strong>🍚 Nasi Goreng</strong><br>Hangat, nikmat, ramah kantong.</div><div>Jam buka dan lokasi dapat ditambahkan di sini.</div><div>© <span id="year"></span> Nasi Goreng. Dibuat dengan ❤️</div></div></footer>
+
+  <div class="cart-drawer" id="cartDrawer" onclick="if(event.target===this)closeCart()">
+    <aside class="cart-panel">
+      <div class="cart-head"><h2>Keranjang Pesanan</h2><button class="close-btn" onclick="closeCart()">×</button></div>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-summary">
+        <div class="total"><span>Total</span><span id="cartTotal">Rp0</span></div>
+        <div class="checkout-fields">
+          <input id="customerName" placeholder="Nama pemesan" aria-label="Nama pemesan">
+          <input id="customerAddress" placeholder="Alamat / titik pengambilan" aria-label="Alamat atau titik pengambilan">
+          <textarea id="customerNote" placeholder="Catatan pesanan (opsional)" aria-label="Catatan pesanan"></textarea>
+        </div>
+        <button class="btn btn-primary" style="width:100%" onclick="checkout()">Pesan via WhatsApp ↗</button>
+        <p style="font-size:11px;color:#8b7c70;line-height:1.5;margin-bottom:0">Catatan: ganti nomor WhatsApp penjual di kode website sebelum digunakan.</p>
+      </div>
+    </aside>
+  </div>
+  <div class="toast" id="toast"></div>
+  <script>
+    // EDIT MENU: ubah nama, deskripsi, harga, emoji, dan label sesuai produk sebenarnya.
+    const products = [
+      {id:1,name:"Nasi Goreng Original",desc:"Nasi goreng gurih dengan bumbu khas.",price:10000,image:"https://www.arise-app.com/images/dishes/en/nasi-goreng-1dba9e.webp",style:""},
+      {id:2,name:"Nasi Goreng Telur",desc:"Nasi goreng favorit dengan telur yang nikmat.",price:12000,image:"https://mia.vn/media/uploads/blog-du-lich/nasi-goreng-4-1709766430.jpeg",style:"orange",badge:"Favorit"},
+      {id:3,name:"Nasi Goreng Sosis",desc:"Paduan nasi goreng dan potongan sosis.",price:13000,image:"https://www.mashed.com/img/gallery/14-essential-words-and-phrases-indonesian-restaurant/intro-1711367747.jpg",style:"red"},
+      {id:4,name:"Nasi Goreng Spesial",desc:"Porsi mantap untuk kamu yang lebih lapar.",price:15000,image:"https://i0.wp.com/ptbamboe.com/wp-content/uploads/Picture-65.jpg?fit=1920%2C1080&ssl=1",style:"green",badge:"Spesial"},
+      {id:5,name:"Nasi Goreng Pedas",desc:"Pilihan pedas untuk pencinta sensasi.",price:12000,image:"https://www.westonaprice.org/wp-content/uploads/fried-rice2.jpg",style:"red"},
+      {id:6,name:"Nasi Goreng Komplit",desc:"Kombinasi topping untuk makan lebih puas.",price:15000,image:"https://1001resepnusantara.com/_next/image?q=75&url=https%3A%2F%2Fstorage.1001resepnusantara.com%2Fimages%2Frecipe%2FxZgJGfnaaGIFo0udtizUjeZJdpXqFs2n9i2inZTH.webp&w=3840",style:"orange"}
+    ];
+    // GANTI dengan nomor WhatsApp bisnis, format internasional tanpa tanda + atau spasi.
+    const WHATSAPP_NUMBER = "6285236625316";
+    const cart = {};
+    const rupiah = n => new Intl.NumberFormat("id-ID",{style:"currency",currency:"IDR",maximumFractionDigits:0}).format(n);
+    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById("menuGrid").innerHTML = products.map(p=>`
+      <article class="menu-card">
+        <div class="food-photo ${p.style}">${p.badge?`<span class="badge">${p.badge}</span>`:""}<img src="${p.image}" alt="${p.name}" loading="lazy"></div>
+        <div class="menu-body"><h3>${p.name}</h3><p>${p.desc}</p><div class="menu-bottom"><span class="price">${rupiah(p.price)}</span><button class="add-btn" onclick="addToCart(${p.id})">+ Tambah</button></div></div>
+      </article>`).join("");
+    function addToCart(id){cart[id]=(cart[id]||0)+1;renderCart();showToast("Menu ditambahkan ke keranjang");}
+    function changeQty(id,delta){cart[id]=(cart[id]||0)+delta;if(cart[id]<=0)delete cart[id];renderCart();}
+    function renderCart(){
+      const count=Object.values(cart).reduce((a,b)=>a+b,0);
+      document.getElementById("cartCount").textContent=count;
+      const entries=products.filter(p=>cart[p.id]);
+      document.getElementById("cartItems").innerHTML=entries.length?entries.map(p=>`
+        <div class="cart-row"><div><strong>${p.name}</strong><small>${rupiah(p.price)} / porsi</small><div class="qty"><button onclick="changeQty(${p.id},-1)">−</button><span>${cart[p.id]}</span><button onclick="changeQty(${p.id},1)">+</button></div></div><strong>${rupiah(p.price*cart[p.id])}</strong></div>`).join(""):`<div class="cart-empty">🛒<br><strong>Keranjang masih kosong</strong><br>Pilih menu favoritmu dulu, ya.</div>`;
+      const total=entries.reduce((sum,p)=>sum+p.price*cart[p.id],0);
+      document.getElementById("cartTotal").textContent=rupiah(total);
+    }
+    function openCart(){document.getElementById("cartDrawer").classList.add("open");document.body.style.overflow="hidden";renderCart();}
+    function closeCart(){document.getElementById("cartDrawer").classList.remove("open");document.body.style.overflow="";}
+    function checkout(){
+      const entries=products.filter(p=>cart[p.id]);
+      if(!entries.length){showToast("Pilih menu terlebih dahulu");return;}
+      const name=document.getElementById("customerName").value.trim();
+      const address=document.getElementById("customerAddress").value.trim();
+      const note=document.getElementById("customerNote").value.trim();
+      if(!name){showToast("Isi nama pemesan terlebih dahulu");document.getElementById("customerName").focus();return;}
+      if(!address){showToast("Isi alamat atau titik pengambilan");document.getElementById("customerAddress").focus();return;}
+      const total=entries.reduce((sum,p)=>sum+p.price*cart[p.id],0);
+      let msg=`Halo, saya ingin memesan:%0A%0A`;
+      msg+=entries.map(p=>`• ${p.name} x${cart[p.id]} = ${rupiah(p.price*cart[p.id])}`).join("%0A");
+      msg+=`%0A%0A*Total: ${rupiah(total)}*%0A`;
+      msg+=`Nama: ${name}%0AAlamat/pengambilan: ${address}`;
+      if(note)msg+=`%0ACatatan: ${note}`;
+      
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`,"_blank","noopener");
+    }
+    let toastTimer;
+    function showToast(message){const t=document.getElementById("toast");t.textContent=message;t.classList.add("show");clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove("show"),2600);}
+    renderCart();
+  </script>
+</body>
+</html>
